@@ -20,3 +20,11 @@
 - Verwenden Sie `ref` für die Parameter in der `CompareAndSwap`-Methode, um einen tatsächlichen Swap der Originalwerte zu ermöglichen.
 - Die `CompareTo`-Methode wird verwendet, um zu entscheiden, ob ein Swap erforderlich ist.
 - Nutzen Sie die Hilfsmethode `PrintValues`, um im Vorfeld und nach dem Aufruf von `CompareAndSwap` zu überprüfen, ob die Werte korrekt ausgetauscht wurden oder nicht.
+
+## Hilfreiche MSDN-Ressourcen
+
+- [Generics Overview](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/)
+- [Generic Constraints](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters)
+- [IComparable Interface](https://docs.microsoft.com/en-us/dotnet/api/system.icomparable)
+- [ref Keyword](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref)
+- [Methods](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods)

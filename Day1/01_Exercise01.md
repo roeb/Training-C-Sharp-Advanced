@@ -23,3 +23,11 @@
 - Denken Sie daran, dass die Methoden von List (wie `Add`, `Remove`, `Count`) nützlich sein können, wenn Sie `List<T>` verwenden.
 - Verwenden Sie die `IndexOutOfRangeException`, um ungültige Indexzugriffe in der `Get`-Methode abzufangen.
 - Sie können den `Remove`-Methode Erfolg überprüfen, indem Sie die Rückgabe der `List<T>.Remove`-Methode nutzen.
+
+## Hilfreiche MSDN-Ressourcen
+
+- [Generics Overview](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/)
+- [List<T> Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1)
+- [Exception Handling](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/)
+- [Indexers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/)
+- [Methods](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods)

@@ -1,35 +1,49 @@
-# Übung 2: Verwendung von Attributen und Reflection
+# Übung: Implementierung eines Temperaturüberwachungssystems
+
+In dieser Übung wirst du ein Temperaturüberwachungssystem implementieren. Deine Aufgabe ist es, eine Klasse `TemperatureSensor` zu erstellen, die ein Event `TemperatureThresholdReached` auslöst, wenn eine simulierte Temperatur einen definierten Schwellenwert überschreitet. Zusätzlich entwickelst du eine `AlarmSystem`-Klasse, die auf dieses Event reagiert und eine Warnung ausgibt. Diese Übung hilft dir, den Einsatz von Delegates und Events in der Entwicklung von ereignisgesteuertem Code zu verstehen und anzuwenden.
 
 ## Anweisungen
 
-1. **Definieren Sie ein benutzerdefiniertes Attribut `InfoAttribute`:**
-   - Erstellen Sie eine Klasse `InfoAttribute`, die von `System.Attribute` abgeleitet wird.
-   - Fügen Sie eine Eigenschaft `Description` hinzu, die über den Konstruktor gesetzt werden kann.
+1. **Erstellen Sie eine Klasse `TemperatureSensor`:**
+   - Diese Klasse sollte ein Event `TemperatureThresholdReached` haben.
+   - Definieren Sie einen Delegaten `TemperatureThresholdReachedHandler`, der einen `float`-Parameter für die Temperatur akzeptiert.
 
-2. **Wenden Sie das Attribut auf Klassen an:**
-   - Dekorieren Sie zwei oder mehr Klassen mit `InfoAttribute` und geben Sie eine passende Beschreibung an.
+2. **Implementieren Sie eine Methode `ReadTemperature`:**
+   - Diese Methode soll zufällig Temperaturen simulieren und das `TemperatureThresholdReached`-Event auslösen, wenn eine Temperatur einen definierten Schwellenwert erreicht oder überschreitet.
 
-3. **Verwenden Sie Reflection zur Laufzeit:**
-   - Implementieren Sie eine Methode, die alle Klassen des aktuellen Assemblys durchsucht.
-   - Finden Sie alle Klassen, die mit `InfoAttribute` versehen sind, und geben Sie deren Beschreibung aus.
+3. **Erstellen Sie eine Klasse `AlarmSystem`:**
+   - Fügen Sie eine Methode `ActivateAlarm` hinzu, die die `TemperatureThresholdReached`-Event-Nachricht entgegennimmt und eine Warnung ausgibt.
+
+4. **Verknüpfen Sie den `AlarmSystem` mit dem `TemperatureSensor`:**
+   - Erzeugen Sie Instanzen von `TemperatureSensor` und `AlarmSystem`.
+   - Abonnieren Sie das `TemperatureThresholdReached`-Event mit der Methode `ActivateAlarm`.
+
+5. **Testen Sie das System:**
+   - Simulieren Sie Temperaturmessungen und beobachten Sie die Ausführung des Events mit der übergebenen Temperatur.
 
 ## Lösungshinweise
 
-1. **Benutzerdefiniertes Attribut:**
-   - Verwenden Sie `[AttributeUsage(AttributeTargets.Class)]` um das Attribut nur auf Klassen anzuwenden.
-   - Nutzen Sie einen Konstruktor, um die `Description`-Eigenschaft zu initialisieren.
+1. **Delegat und Event:**
+   - Definieren Sie einen Delegaten `TemperatureThresholdReachedHandler` mit einem `float`-Parameter.
+   - Deklarieren Sie das Event `TemperatureThresholdReached` basierend auf diesem Delegaten.
 
-2. **Anwendung des Attributs:**
-   - Dekorieren Sie die zu prüfenden Klassen mit `[Info("Beschreibung")]`.
+2. **Datenverarbeitung:**
+   - Verwenden Sie Zufallsgenerierung zur Simulation von Temperaturdaten in `ReadTemperature`.
+   - Lösen Sie das Event aus, wenn der Temperaturwert den Schwellenwert überschreitet.
 
-3. **Reflection verwenden:**
-   - Verwenden Sie `Assembly.GetExecutingAssembly()` und `GetTypes()`, um alle Typen zu erhalten.
-   - Für jede Klasse prüfen Sie mit `GetCustomAttribute<InfoAttribute>()`, ob das Attribut vorhanden ist.
+3. **Event auslösen:**
+   - Nutzen Sie `?.Invoke(temperature)`, um das Event auszulösen, wenn es Abonnenten gibt.
+
+4. **Abonnent:**
+   - Implementieren Sie `ActivateAlarm` im `AlarmSystem`, um die Warnung auszugeben.
+
+5. **Verbindung:**
+   - Nutzen Sie `+=` im Hauptprogramm, um das Event mit der Abonnentenmethode zu verbinden.
 
 ## Hilfreiche MSDN-Ressourcen
 
-- [Custom Attributes](https://docs.microsoft.com/en-us/dotnet/standard/attributes/writing-custom-attributes)
-- [AttributeTargets Enum](https://docs.microsoft.com/en-us/dotnet/api/system.attributetargets)
-- [Reflection in .NET](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/reflection)
-- [Assembly.GetExecutingAssembly Method](https://docs.microsoft.com/en-us/dotnet/api/system.reflection.assembly.getexecutingassembly)
-- [GetCustomAttribute Method](https://docs.microsoft.com/en-us/dotnet/api/system.reflection.customattributeextensions.getcustomattribute)
+- [Delegates](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/)
+- [Events](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/)
+- [How to: Subscribe to and Unsubscribe from Events](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-subscribe-to-and-unsubscribe-from-events)
+- [Random Class](https://docs.microsoft.com/en-us/dotnet/api/system.random)
+- [Nullable Reference Types](https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references)

@@ -1,47 +1,62 @@
-# Übung 2: Verwendung von Attributen und Reflection
+# Übung: Implementierung eines Temperaturüberwachungssystems
 
 ## Komplette Lösung
 
 ```csharp
 using System;
-using System.Reflection;
 
-// Define a custom attribute
-[AttributeUsage(AttributeTargets.Class)]
-public class InfoAttribute : Attribute
+// Delegate definition
+public delegate void TemperatureThresholdReachedHandler(float temperature);
+
+public class TemperatureSensor
 {
-    public string Description { get; }
+    private readonly Random _random = new Random();
+    private const float Threshold = 30.0f;
 
-    public InfoAttribute(string description)
+    // Event declaration
+    public event TemperatureThresholdReachedHandler TemperatureThresholdReached;
+
+    public void ReadTemperature()
     {
-        Description = description;
+        for (int i = 0; i < 10; i++)
+        {
+            float currentTemperature = (float)(_random.NextDouble() * 50);
+            Console.WriteLine($"Current Temperature: {currentTemperature}");
+
+            if (currentTemperature >= Threshold)
+            {
+                OnTemperatureThresholdReached(currentTemperature);
+            }
+        }
+    }
+
+    protected virtual void OnTemperatureThresholdReached(float temperature)
+    {
+        TemperatureThresholdReached?.Invoke(temperature);
     }
 }
 
-// Apply the attribute to some classes
-[Info("This class handles customer data.")]
-public class CustomerManager
+public class AlarmSystem
 {
-}
-
-[Info("This class processes orders.")]
-public class OrderProcessor
-{
+    // Event handler method
+    public void ActivateAlarm(float temperature)
+    {
+        Console.WriteLine($"Alarm! Temperature reached {temperature} degrees.");
+    }
 }
 
 public class Program
 {
     public static void Main()
     {
-        // Use reflection to find classes with InfoAttribute
-        foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
-        {
-            InfoAttribute infoAttribute = type.GetCustomAttribute<InfoAttribute>();
-            if (infoAttribute != null)
-            {
-                Console.WriteLine($"{type.Name}: {infoAttribute.Description}");
-            }
-        }
+        TemperatureSensor sensor = new TemperatureSensor();
+        AlarmSystem alarm = new AlarmSystem();
+
+        // Subscribe to the event
+        sensor.TemperatureThresholdReached += alarm.ActivateAlarm;
+
+        // Simulate temperature readings
+        sensor.ReadTemperature();
     }
 }
 ```

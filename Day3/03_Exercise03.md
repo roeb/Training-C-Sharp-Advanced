@@ -26,3 +26,38 @@
 - Verwenden Sie `HttpClient` für die Webanfrage.
 - Nutzen Sie LINQ-Methoden wie `Where`, `GroupBy`, `Select`, `OrderBy`, und `ThenBy` für Abfragen.
 - Achten Sie darauf, JSON korrekt in das angegebene Modell zu deserialisieren.
+
+## MSDN Links
+
+### 1. HTTP-Anfragen mit HttpClient
+
+- **HttpClient-Klasse**:
+  - MSDN-Dokumentation: [HttpClient Class](https://learn.microsoft.com/dotnet/api/system.net.http.httpclient)
+  - Einführung in die Verwendung von `HttpClient`, um HTTP-Anfragen zu senden und Antworten zu empfangen.
+
+### 2. JSON-Daten Deserialisierung
+
+- **System.Text.Json**:
+  - MSDN-Dokumentation: [System.Text.Json Namespace](https://learn.microsoft.com/dotnet/api/system.text.json)
+  - Tutorial zur JSON-Datenverarbeitung mit `System.Text.Json`: [How to serialize and deserialize JSON in .NET](https://learn.microsoft.com/dotnet/standard/serialization/system-text-json-how-to?pivots=dotnet-7-0)
+
+- **Newtonsoft.Json (Json.NET)**:
+  - Offizielle Dokumentation: [Json.NET Documentation](https://www.newtonsoft.com/json/help/html/Introduction.htm)
+  - MSDN-Beispiel zur Verwendung von Json.NET: [Working with JSON in .NET (Newtonsoft.Json)](https://learn.microsoft.com/dotnet/standard/serialization/system-text-json-migrate-from-newtonsoft?pivots=dotnet-6-0)
+
+### 3. LINQ-Abfragen
+
+- **Grundlegende LINQ-Abfragen**:
+  - MSDN-Dokumentation: [LINQ (Language-Integrated Query)](https://learn.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/)
+  - Einführung in LINQ-Abfragen in C#: [Writing LINQ Queries in C#](https://learn.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/writing-linq-queries-csharp)
+
+- **LINQ `Where`-Methode**:
+  - MSDN-Dokumentation: [Enumerable.Where Method](https://learn.microsoft.com/dotnet/api/system.linq.enumerable.where)
+
+- **LINQ `GroupBy`-Methode**:
+  - MSDN-Dokumentation: [Enumerable.GroupBy Method](https://learn.microsoft.com/dotnet/api/system.linq.enumerable.groupby)
+
+- **LINQ `OrderBy` und `ThenBy`-Methoden**:
+  - MSDN-Dokumentation: 
+    - [Enumerable.OrderBy Method](https://learn.microsoft.com/dotnet/api/system.linq.enumerable.orderby)
+    - [Enumerable.ThenBy Method](https://learn.microsoft.com/dotnet/api/system.linq.enumerable.thenby)
